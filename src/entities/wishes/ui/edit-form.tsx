@@ -6,7 +6,6 @@ import { useEdit } from "@/entities/wishes/hooks/useEdit";
 import { useDelete } from "@/entities/wishes/hooks/useDelete";
 
 //Редактирование желания
-
 interface Props {
     id: string;
     label?: string;
@@ -14,13 +13,10 @@ interface Props {
 }
 
 export const EditFormUi: React.FC<Props> = ({ id, label = "Редактирование желания", className }) => {
-
     {/* Вызов хука для редактирования желания */}
     const { register, handleSubmit, errors, onSubmit, isLoading, isSubmitting, error, wish } = useEdit(id);
-
     {/* Вызов хука для удаления желания */}
     const { deleteWish, isDeleting } = useDelete();
-
     {/* Обработчик удаления желания */}
     const handleDelete = async () => {
         if (wish) {
@@ -31,7 +27,6 @@ export const EditFormUi: React.FC<Props> = ({ id, label = "Редактиров�
             }
         }
     };
-
     {/* Состояние загрузки */}
     if (isLoading) {
         return (
@@ -40,22 +35,17 @@ export const EditFormUi: React.FC<Props> = ({ id, label = "Редактиров�
             </div>
         );
     }
-
     return (
         <div className={`${className} p-5 sm:p-10 w-full bg-zinc-800 rounded-lg`}>
-
             {/* Заголовок формы */}
             <div className="text-center text-xl sm:text-2xl font-medium text-white">{label}</div>
-
             {/* Отображение ошибки */}
             {error && (
                 <div className="mb-4 p-3 bg-red-500 text-white rounded-lg text-center">
                     {error}
                 </div>
             )}
-
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-
                 {/* Поле статуса */}
                 <div className="w-full grid gap-y-2">
                     <Label className="text-white">Статус</Label>
@@ -80,13 +70,11 @@ export const EditFormUi: React.FC<Props> = ({ id, label = "Редактиров�
                             <span className="text-white">Куплено</span>
                         </label>
                     </div>
-
                     {/* Отображение ошибки */}
                     {errors.completed && (
                         <span className="text-red-500">{errors.completed.message}</span>
                     )}
                 </div>
-
                 <div className="w-full grid gap-y-2">
                     {/* Ввод заголовка */}
                     <Label className="text-white">Название желания</Label>
@@ -96,13 +84,11 @@ export const EditFormUi: React.FC<Props> = ({ id, label = "Редактиров�
                         className="bg-zinc-700 border-zinc-600 text-white placeholder:text-gray-400"
                         disabled={isSubmitting}
                     />
-
                     {/* Отображение ошибки */}
                     {errors.title && (
                         <span className="text-red-500">{errors.title.message}</span>
                     )}
                 </div>
-
                 <div className="w-full grid gap-y-2">
 
                     {/* Ввод описания */}

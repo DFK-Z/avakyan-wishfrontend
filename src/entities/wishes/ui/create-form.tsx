@@ -37,7 +37,7 @@ export const CreateFormUi: React.FC<Props> = ({ label = "Форма создан
                     <Label className="text-white">Приоритет</Label>
                     <select
                         {...register('priority')}
-                        className="flex h-10 w-full rounded-md border border-zinc-600 bg-zinc-700 px-3 py-2 text-sm text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="flex h-10 w-full rounded-md border border-zinc-600 bg-zinc-700 px-3 py-2 text-sm text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
                     >
                         <option value="">Выберите приоритет</option>
                         <option value="LOW">Низкий</option>

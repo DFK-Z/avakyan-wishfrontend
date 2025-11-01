@@ -66,9 +66,9 @@ export default async function SinglePage({ params }: Props) {
                             <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
                                 <div className="flex items-center gap-3">
                                     <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
-                                        wish.completed ? "bg-green-500 text-white" : "bg-orange-500 text-white"
+                                        wish.isCompleted ? "bg-green-500 text-white" : "bg-orange-500 text-white"
                                     }`}>
-                                        {wish.completed ? "✅ Куплено" : "🔄 Активно"}
+                                        {wishisCompleted ? "✅ Куплено" : "🔄 Активно"}
                                     </span>
                                     <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${getPriorityColor(wish.priority)}`}>
                                         <Tag className="w-3 h-3 mr-1" />
@@ -158,11 +158,11 @@ export default async function SinglePage({ params }: Props) {
                         {/* Статус */}
                         <div className="bg-gray-800 rounded-lg p-4 text-center border border-gray-700">
                             <div className="text-2xl font-bold text-white mb-1">
-                                {wish.completed ? "🎉" : "⏳"}
+                                {wish.isCompleted ? "🎉" : "⏳"}
                             </div>
                             <div className="text-sm text-gray-400">Статус</div>
                             <div className="text-white font-medium">
-                                {wish.completed ? "Выполнено" : "В процессе"}
+                                {wish.isCompleted ? "Выполнено" : "В процессе"}
                             </div>
                         </div>
 
